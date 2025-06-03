@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+th{
+  @apply px-4 py-2 text-left
+}
+
+td{
+  @apply px-4 py-2
+}
+
+button{
+  @apply cursor-pointer
+}
+
+tr{
+  @apply border
+}
