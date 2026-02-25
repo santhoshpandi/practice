@@ -6,7 +6,7 @@ export default function AddStudent() {
   const { register, handleSubmit, reset } = useForm()
   const {addData} = useStudent()
 
-  function submitData(formData) {
+  function submitData(formData:any) {
     addData(formData)
     reset()
   }
@@ -19,17 +19,17 @@ export default function AddStudent() {
             <tr className="border">
               <th>Name</th>
               <th>Age</th>
-              <th rowSpan={2}>
-                <button type="submit">
+              <th className=" border" rowSpan={2}>
+                <button className="cursor-pointer p-2 hover:bg-blue-500 duration-150" type="submit">
                   ➕
                 </button>
               </th>
             </tr>
             <tr className="border">
-              <td>
+              <td className="border">
                 <input className="bg-slate-200 px-2 py-0.5" type="text" { ...register('name', {required:true}) } />
               </td>
-              <td>
+              <td className="border">
                 <input className="bg-slate-200 px-2 py-0.5" type="number" {...register('age', {required:true})} />
               </td>
             </tr>

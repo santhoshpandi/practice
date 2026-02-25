@@ -12,16 +12,16 @@ export default function DispStudent() {
       <table className="w-auto border">
         <tbody>
           <tr>
-            <th>S.No</th>
-            <th>Name</th>
-            <th>Age</th>
+            <th className="px-2 py-1 border">S.No</th>
+            <th className="px-2 py-1 border">Name</th>
+            <th className="px-2 py-1 border">Age</th>
           </tr>
           {
             data.map((d, index) => (
               <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{d.name}</td>
-                <td>{d.age}</td>
+                <td className="px-2 py-1 border">{index + 1}</td>
+                <td className="px-2 py-1 border">{d.name}</td>
+                <td className="px-2 py-1 border">{d.age}</td>
               </tr>
             ))
           }
