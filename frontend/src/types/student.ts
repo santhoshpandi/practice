@@ -1,6 +1,7 @@
 export interface Student{
+  _id:string,
   name: string,
-  age: number,
-  createdAt: string,
-  updatedAt: string
+  age: number|null,
+  createdAt?: string,
+  updatedAt?: string
 }
