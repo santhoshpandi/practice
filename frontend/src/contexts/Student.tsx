@@ -4,7 +4,7 @@ import type { Student } from "../types/student";
 import type { StudentContextType } from "../types/context";
 
 import axios from 'axios'
-import { enqueueSnackbar } from 'notistack'
+import toast from "react-hot-toast";
 
 // ------------- Context Creation ------------- 
 const StudentContext = createContext<StudentContextType | undefined>(undefined)
@@ -31,17 +31,17 @@ const StudentProvider : React.FC<{children:ReactNode}> = ({ children }) => {
       setData(res.data)
     }
     catch (err: any) {
-      enqueueSnackbar(err.message, { variant: "error" })
+      toast.error(err.message)
     }       
   }
 
   async function addData(student: Student) {
     await api.post('/add', student)
       .then(() => {
-        enqueueSnackbar('Data Inserted', { variant: 'success' })
+        toast.success('Data Inserted')
         setRefresh(!refresh)
       })
-      .catch((err:any) => enqueueSnackbar(err.message, { variant: "error" }))
+      .catch((err:any) => toast.error(err.message))
   }
 
   return (
