@@ -25,7 +25,7 @@ createAsyncThunk<
 const addStudent = createAsyncThunk<Student, Partial<Student>, { rejectValue: string }>('student/add', async (newStudent, { rejectWithValue }) => {
   try {
     const res = await api.post("/add", newStudent);
-    return res.data;
+    return res.data.data;
   } catch (err: any) {
     return rejectWithValue(
       err.response?.data?.message || "Failed"

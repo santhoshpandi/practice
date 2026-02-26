@@ -5,7 +5,11 @@ const addStudent = async (req, res) => {
   const data = req.body
   console.log(data)
   await Student.insertOne(data)
-    .then(() => res.json("Data inserted Successfully"))
+    .then((result) => res.json({
+      success:true,
+      message:'Data Inserted Successfully',
+      data: result
+    }))
     .catch((err) => res.json({ message: err.message }))
 }
 const displayStudent = async (req, res) => {
