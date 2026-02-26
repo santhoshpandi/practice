@@ -28,7 +28,7 @@ const addStudent = createAsyncThunk<Student, Partial<Student>, { rejectValue: st
     return res.data.data;
   } catch (err: any) {
     return rejectWithValue(
-      err.response?.data?.message || "Failed"
+      err.response?.data?.message || err.message
     );
   }
 })
@@ -39,7 +39,7 @@ const fetchStudents = createAsyncThunk<Student[], void, { rejectValue: string }>
   }
   catch (err: any) {
     return rejectWithValue(
-      err.response?.data?.message || "Failed"
+      err.response?.data?.message || err.message
     );
   }
 })
@@ -50,7 +50,7 @@ const deleteStudent = createAsyncThunk<string, string, { rejectValue: string }>(
   }
   catch (err: any) {
     return rejectWithValue(
-      err.response?.data?.message || "Failed"
+      err.response?.data?.message || err.message
     );
   }
 })
@@ -96,5 +96,7 @@ const studentSlice = createSlice({
 })
 
 export {addStudent, fetchStudents, deleteStudent}
+
+export const {clearError} = studentSlice.actions
 
 export default studentSlice.reducer

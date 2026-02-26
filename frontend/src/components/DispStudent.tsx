@@ -11,7 +11,6 @@ export default function DispStudent() {
   // const { getData, data } = useStudent()
   const dispatch = useDispatch<AppDispatch>()
   const students = useSelector((state:RootState)=>state.student.students)
-  const error = useSelector((state:RootState)=>state.student.error)
 
   useEffect(()=>{
     dispatch(fetchStudents())
